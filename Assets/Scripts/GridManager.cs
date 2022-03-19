@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GridManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GridManager : MonoBehaviour
 
     private List<Parcel> _lstParcel;
     private Parcel _currentParcel;
+    private RaycastHit2D hitMouse;
 
     private GameObject _hover;
 
@@ -47,6 +49,10 @@ public class GridManager : MonoBehaviour
 
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
+        hitMouse = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
+        if (hitMouse.collider == null) { _hover.transform.position = new Vector3(50f, 50f); return; }
+        Debug.Log("test");
         if (Input.GetMouseButtonDown(0))
         {
             OnClick();
@@ -57,11 +63,7 @@ public class GridManager : MonoBehaviour
     void OnHover()
     {
         if (_isParcelSelected) { return; }
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (mousePosition.x < 0 || mousePosition.y < 0 || mousePosition.x >= _width || mousePosition.y >= _height) {
-            _hover.transform.position = new Vector3(50f, 50f);
-            return; 
-        }
+        Vector2 mousePosition = hitMouse.point;
 
         Vector2 position = new Vector2(Mathf.FloorToInt(mousePosition.x) + 0.5f, Mathf.FloorToInt(mousePosition.y)+0.5f);
         _hover.transform.position = position;
@@ -70,8 +72,8 @@ public class GridManager : MonoBehaviour
     void OnClick()
     {
         if (_isParcelSelected) { return; }
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (mousePosition.x < 0 || mousePosition.y < 0 || mousePosition.x >= _width || mousePosition.y >= _height) { return; }
+
+        Vector2 mousePosition = hitMouse.point;
 
         int id = GameManager.Instance.CoordToId(mousePosition, _width);
         SelectParcel(id, new Vector2(Mathf.FloorToInt(mousePosition.x)+0.5f, Mathf.FloorToInt(mousePosition.y)+1.25f));
