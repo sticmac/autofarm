@@ -7,12 +7,16 @@ public class Inventory : ScriptableObject
 {
     public enum ItemType {
         Wheat,
-        HumidityDetector,
+        HumiditySensor,
         Alarm,
         Sprinkler
     }
 
     private Dictionary<ItemType, int> _inventory;
+
+    private void OnEnable() {
+        _inventory = new Dictionary<ItemType, int>();
+    }
 
     public void Clear() {
         _inventory.Clear();
