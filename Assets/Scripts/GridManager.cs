@@ -11,8 +11,13 @@ public class GridManager : MonoBehaviour
     [Header("Canvas")]
     [SerializeField] private GameObject _parcelInfo;
 
+    [Header("Prefabs")]
+    [SerializeField] private GameObject _hoverPrefabs;
+
     private List<Parcel> _lstParcel;
     private Parcel _currentParcel;
+
+    private GameObject _hover;
 
     private bool _isParcelSelected { get { return _parcelInfo.gameObject.activeSelf; } }
 
@@ -21,6 +26,7 @@ public class GridManager : MonoBehaviour
         CreateGrid();
 
         _parcelInfo.gameObject.SetActive(false);
+        _hover = Instantiate(_parcelInfo.gameObject, transform);
     }
 
     private void CreateGrid()
@@ -48,7 +54,6 @@ public class GridManager : MonoBehaviour
     {
         if (_isParcelSelected) { UnSelectParcel(); return; }
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         if (mousePosition.x < 0 || mousePosition.y < 0 || mousePosition.x >= _width || mousePosition.y >= _height) { return; }
 
         int id = Mathf.FloorToInt(mousePosition.y) * _width + Mathf.FloorToInt(mousePosition.x);
@@ -58,6 +63,8 @@ public class GridManager : MonoBehaviour
     void SelectParcel(int id)
     {
         _currentParcel = _lstParcel[id];
+        ParcelCanvas parcelInfo = _parcelInfo.GetComponentInChildren<ParcelCanvas>();
+        parcelInfo.Title = _currentParcel.Type.ToString();
         _parcelInfo.gameObject.SetActive(true);
     }
 

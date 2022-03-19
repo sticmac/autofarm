@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Parcel
 {
-    enum Type
+    public enum Types
     {
         None,
         Culture,
         Actioneur
+    }
+
+    public Types Type;
+
+    public Parcel()
+    {
+        Type = Types.None;
     }
 }
