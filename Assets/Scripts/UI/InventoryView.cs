@@ -11,6 +11,7 @@ public class InventoryView : MonoBehaviour
     [SerializeField] InventoryItemView _humiditySensorView;
     [SerializeField] InventoryItemView _alarmView;
     [SerializeField] InventoryItemView _sprinklerView;
+    [SerializeField] TMPro.TMP_Text _money;
 
     private void Start() {
         //_inventory.Clear(); // Eff
@@ -21,5 +22,6 @@ public class InventoryView : MonoBehaviour
         _humiditySensorView.UpdateInfo(_inventory.GetItemAmount(Inventory.ItemType.HumiditySensor));
         _alarmView.UpdateInfo(_inventory.GetItemAmount(Inventory.ItemType.Alarm));
         _sprinklerView.UpdateInfo(_inventory.GetItemAmount(Inventory.ItemType.Sprinkler));
+        _money.text = _inventory.Money.ToString();
     }
 }

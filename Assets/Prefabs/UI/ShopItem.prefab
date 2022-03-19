@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: {fileID: 6711087563515119671}
-  _price: {fileID: 7926591541694531586}
+  _priceText: {fileID: 7926591541694531586}
   _inventory: {fileID: 11400000, guid: 3192ba942b3096c50a3a606a5864f7d5, type: 2}
 --- !u!114 &8629369957805218114
 MonoBehaviour:

@@ -13,10 +13,12 @@ public class Inventory : ScriptableObject
     }
 
     private Dictionary<ItemType, int> _inventory;
+    public int Money;
 
     private void OnEnable() {
         _inventory = new Dictionary<ItemType, int>();
         _inventory.Add(ItemType.Wheat, 3);
+        Money = 30;
     }
 
     public void Clear() {
