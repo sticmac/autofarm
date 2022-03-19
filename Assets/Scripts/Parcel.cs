@@ -12,9 +12,11 @@ public class Parcel
     }
 
     public Types Type;
+    public string Name;
 
     public Parcel()
     {
         Type = Types.None;
+        Name = "Wheat";
     }
 }

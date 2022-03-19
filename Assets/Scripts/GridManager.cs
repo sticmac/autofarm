@@ -11,6 +11,7 @@ public class GridManager : MonoBehaviour
 
     [Header("Canvas")]
     [SerializeField] private GameObject _parcelInfoNone;
+    [SerializeField] private GameObject _parcelInfoCulture;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _hoverPrefabs;
@@ -27,6 +28,8 @@ public class GridManager : MonoBehaviour
         CreateGrid();
 
         _parcelInfoNone.gameObject.SetActive(false);
+        _hover = Instantiate(_hoverPrefabs);
+        _parcelInfoCulture.gameObject.SetActive(false);
     }
 
     private void CreateGrid()
@@ -48,6 +51,20 @@ public class GridManager : MonoBehaviour
         {
             OnClick();
         }
+        OnHover();
+    }
+
+    void OnHover()
+    {
+        if (_isParcelSelected) { return; }
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (mousePosition.x < 0 || mousePosition.y < 0 || mousePosition.x >= _width || mousePosition.y >= _height) {
+            _hover.transform.position = new Vector3(50f, 50f);
+            return; 
+        }
+
+        Vector2 position = new Vector2(Mathf.FloorToInt(mousePosition.x) + 0.5f, Mathf.FloorToInt(mousePosition.y)+0.5f);
+        _hover.transform.position = position;
     }
 
     void OnClick()
@@ -56,17 +73,26 @@ public class GridManager : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mousePosition.x < 0 || mousePosition.y < 0 || mousePosition.x >= _width || mousePosition.y >= _height) { return; }
 
-        int id = Mathf.FloorToInt(mousePosition.y) * _width + Mathf.FloorToInt(mousePosition.x);
-        SelectParcel(id);
+        int id = GameManager.Instance.CoordToId(mousePosition, _width);
+        SelectParcel(id, new Vector2(Mathf.FloorToInt(mousePosition.x)+0.5f, Mathf.FloorToInt(mousePosition.y)+1.25f));
     }
 
-    void SelectParcel(int id)
+    void SelectParcel(int id, Vector2 position)
     {
         _currentParcel = _lstParcel[id];
         GameObject parcel = _parcelInfoNone;
 
-        ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
-        parcelInfo.Title = _currentParcel.Type.ToString();
+        if (_currentParcel.Type == Parcel.Types.Culture)
+        {
+            parcel = _parcelInfoCulture;
+            ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
+            parcelInfo.Title = _currentParcel.Name;
+        } else
+        {
+            ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
+            parcelInfo.Title = _currentParcel.Type.ToString();
+        }
+        parcel.transform.position = Camera.main.WorldToScreenPoint(position);
         parcel.gameObject.SetActive(true);
     }
 
@@ -74,5 +100,6 @@ public class GridManager : MonoBehaviour
     {
         _currentParcel = null;
         _parcelInfoNone.gameObject.SetActive(false);
+        _parcelInfoCulture.gameObject.SetActive(false);
     }
 }
