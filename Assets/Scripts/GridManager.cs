@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
@@ -9,7 +10,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int _height;
 
     [Header("Canvas")]
-    [SerializeField] private GameObject _parcelInfo;
+    [SerializeField] private GameObject _parcelInfoNone;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _hoverPrefabs;
@@ -19,14 +20,13 @@ public class GridManager : MonoBehaviour
 
     private GameObject _hover;
 
-    private bool _isParcelSelected { get { return _parcelInfo.gameObject.activeSelf; } }
+    private bool _isParcelSelected { get { return _currentParcel != null; } }
 
     void Start()
     {
         CreateGrid();
 
-        _parcelInfo.gameObject.SetActive(false);
-        _hover = Instantiate(_parcelInfo.gameObject, transform);
+        _parcelInfoNone.gameObject.SetActive(false);
     }
 
     private void CreateGrid()
@@ -52,7 +52,7 @@ public class GridManager : MonoBehaviour
 
     void OnClick()
     {
-        if (_isParcelSelected) { UnSelectParcel(); return; }
+        if (_isParcelSelected) { return; }
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mousePosition.x < 0 || mousePosition.y < 0 || mousePosition.x >= _width || mousePosition.y >= _height) { return; }
 
@@ -63,14 +63,16 @@ public class GridManager : MonoBehaviour
     void SelectParcel(int id)
     {
         _currentParcel = _lstParcel[id];
-        ParcelCanvas parcelInfo = _parcelInfo.GetComponentInChildren<ParcelCanvas>();
+        GameObject parcel = _parcelInfoNone;
+
+        ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
         parcelInfo.Title = _currentParcel.Type.ToString();
-        _parcelInfo.gameObject.SetActive(true);
+        parcel.gameObject.SetActive(true);
     }
 
-    void UnSelectParcel()
+    public void UnSelectParcel()
     {
         _currentParcel = null;
-        _parcelInfo.gameObject.SetActive(false);
+        _parcelInfoNone.gameObject.SetActive(false);
     }
 }
