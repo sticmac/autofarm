@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 5165701786354420130}
   - component: {fileID: 5165701786354420131}
   - component: {fileID: 3540954730456565277}
+  - component: {fileID: 4341628213262662247}
   m_Layer: 5
   m_Name: Inventory Item
   m_TagString: Untagged
@@ -213,7 +214,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5165701786354420133
 CanvasRenderer:
@@ -311,6 +312,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: {fileID: 5165701785378118481}
   _count: {fileID: 5922753945706889143}
+--- !u!114 &4341628213262662247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165701786354420129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d71696bfe65c803b0c826432ecfff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemPlacer: {fileID: 0}
+  _button: {fileID: 5165701786354420131}
+  _itemObject: {fileID: 0}
 --- !u!1 &8070394516671632305
 GameObject:
   m_ObjectHideFlags: 0

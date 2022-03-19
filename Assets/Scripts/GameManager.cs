@@ -18,9 +18,4 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-
-    public int CoordToId(Vector2 position, int width)
-    {
-        return Mathf.FloorToInt(position.y) * width + Mathf.FloorToInt(position.x);
-    }
 }

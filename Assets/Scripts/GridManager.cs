@@ -81,11 +81,11 @@ public class GridManager : MonoBehaviour
 
         Vector2 mousePosition = hitMouse.point;
 
-        int id = GameManager.Instance.CoordToId(mousePosition, _width);
-        SelectParcel(id, new Vector2(Mathf.FloorToInt(mousePosition.x)+0.5f, Mathf.FloorToInt(mousePosition.y)+1.25f));
+        int id = CoordToId(mousePosition);
+        ShowParcelMenu(id, new Vector2(Mathf.FloorToInt(mousePosition.x)+0.5f, Mathf.FloorToInt(mousePosition.y)+1.25f));
     }
 
-    void SelectParcel(int id, Vector2 position)
+    void ShowParcelMenu(int id, Vector2 offset)
     {
         _currentParcel = _lstParcel[id];
 
@@ -98,7 +98,7 @@ public class GridManager : MonoBehaviour
         ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
         parcelInfo.Title = _currentParcel.GetName();
 
-        parcel.transform.position = Camera.main.WorldToScreenPoint(position);
+        parcel.transform.position = Camera.main.WorldToScreenPoint(offset);
         parcel.gameObject.SetActive(true);
     }
 
@@ -107,5 +107,14 @@ public class GridManager : MonoBehaviour
         _currentParcel = null;
         _parcelInfoNone.gameObject.SetActive(false);
         _parcelInfoCulture.gameObject.SetActive(false);
+    }
+
+    public int CoordToId(Vector2 position)
+    {
+        return Mathf.FloorToInt(position.y) * _width + Mathf.FloorToInt(position.x);
+    }
+
+    public Vector2 GetClosestParcelCoordinates(Vector2 worldPosition) {
+        return new Vector2(Mathf.FloorToInt(worldPosition.x), Mathf.FloorToInt(worldPosition.y));
     }
 }

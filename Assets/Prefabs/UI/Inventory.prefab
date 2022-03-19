@@ -288,6 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7918862805201541789}
   - component: {fileID: 5827463012399651671}
+  - component: {fileID: 4244637974906130181}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -336,6 +337,23 @@ MonoBehaviour:
   _alarmView: {fileID: 2987612744918130687}
   _sprinklerView: {fileID: 3535265186569278274}
   _money: {fileID: 1255434687}
+--- !u!114 &4244637974906130181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918862805201541788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199ff3565939b41c4887aff7d00c4694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  _grid: {fileID: 0}
+  OnItemPlaced:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &12445809846916447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343,6 +361,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4667924179094587795}
     m_Modifications:
+    - target: {fileID: 4341628213262662247, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
+      propertyPath: _itemObject
+      value: 
+      objectReference: {fileID: 6711005374022662503, guid: e649f48a023d579d2bc9049fc10fd733, type: 3}
+    - target: {fileID: 4341628213262662247, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
+      propertyPath: _itemPlacer
+      value: 
+      objectReference: {fileID: 4244637974906130181}
     - target: {fileID: 5165701785378118481, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
       propertyPath: m_text
       value: Arroseur
@@ -460,6 +486,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4667924179094587795}
     m_Modifications:
+    - target: {fileID: 4341628213262662247, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
+      propertyPath: _itemObject
+      value: 
+      objectReference: {fileID: 6711005374022662503, guid: e649f48a023d579d2bc9049fc10fd733, type: 3}
+    - target: {fileID: 4341628213262662247, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
+      propertyPath: _itemPlacer
+      value: 
+      objectReference: {fileID: 4244637974906130181}
     - target: {fileID: 5165701785378118481, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
       propertyPath: m_text
       value: Alarme
@@ -577,6 +611,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4667924179094587795}
     m_Modifications:
+    - target: {fileID: 4341628213262662247, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
+      propertyPath: _itemObject
+      value: 
+      objectReference: {fileID: 6711005374022662503, guid: e649f48a023d579d2bc9049fc10fd733, type: 3}
+    - target: {fileID: 4341628213262662247, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
+      propertyPath: _itemPlacer
+      value: 
+      objectReference: {fileID: 4244637974906130181}
     - target: {fileID: 5165701786354420128, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -694,6 +736,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4667924179094587795}
     m_Modifications:
+    - target: {fileID: 4341628213262662247, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
+      propertyPath: _itemObject
+      value: 
+      objectReference: {fileID: 6711005374022662503, guid: e649f48a023d579d2bc9049fc10fd733, type: 3}
+    - target: {fileID: 4341628213262662247, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
+      propertyPath: _itemPlacer
+      value: 
+      objectReference: {fileID: 4244637974906130181}
     - target: {fileID: 5165701785378118481, guid: 6a3bbc8a32086177da572e2700b3ac78, type: 3}
       propertyPath: m_text
       value: "Capteur Humidit\xE9"
