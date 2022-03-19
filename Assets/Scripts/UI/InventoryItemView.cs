@@ -11,6 +11,7 @@ public class InventoryItemView : MonoBehaviour {
         if (count == 0) {
             gameObject.SetActive(false);
         } else {
+            gameObject.SetActive(true);
             _count.text = count.ToString();
         }
     }

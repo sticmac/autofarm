@@ -46,7 +46,6 @@ public class GridManager : MonoBehaviour
             {
                 GameObject parcel = new GameObject($"Cell [{x}/{y}]");
                 Parcel p = parcel.AddComponent<Parcel>();
-                p.AddCulture(_wheat);
                 _lstParcel.Add(p);
 
                 parcel.transform.position = new Vector3(x + 0.5f, y + 0.5f);

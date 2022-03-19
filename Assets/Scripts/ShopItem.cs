@@ -7,10 +7,19 @@ public class ShopItem : MonoBehaviour
 {
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _price;
+    [SerializeField] private Inventory _inventory;
 
-    public void UpdateText(string name, int price)
+    private Inventory.ItemType _type;
+
+    public void UpdateText(string name, int price, Inventory.ItemType type)
     {
         _name.text = name;
         _price.text = price.ToString() + "€";
+        _type = type;
+    }
+
+    public void Buy()
+    {
+        _inventory.AddItem(_type, 1);
     }
 }
