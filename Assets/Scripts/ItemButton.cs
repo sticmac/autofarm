@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ItemButton : MonoBehaviour
 {
+    [SerializeField] Item _item;
     [SerializeField] ItemPlacer _itemPlacer;
     [SerializeField] Button _button;
     [SerializeField] GameObject _itemObject;
@@ -18,7 +19,7 @@ public class ItemButton : MonoBehaviour
     }
 
     private void OnEnable() {
-        _action = () => _itemPlacer.ActivatePlacementModeForItem(_itemObject);
+        _action = () => _itemPlacer.ActivatePlacementModeForItem(_itemObject, _item);
         _button.onClick.AddListener(_action);
     }
 

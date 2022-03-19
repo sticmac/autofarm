@@ -8,7 +8,7 @@ public class ItemPlacer : MonoBehaviour
     [SerializeField] Camera _camera;
     [SerializeField] GridManager _grid;
 
-    public UnityEvent OnItemPlaced;
+    public UnityEvent<Item> OnItemPlaced;
 
     private void Reset()
     {
@@ -17,17 +17,17 @@ public class ItemPlacer : MonoBehaviour
 
     private Coroutine _placementModeCoroutine = null;
 
-    public void ActivatePlacementModeForItem(GameObject itemGo)
+    public void ActivatePlacementModeForItem(GameObject itemGo, Item item)
     {
         GameObject ghostItemGo = Instantiate(itemGo);
         ghostItemGo.SetActive(false);
         ghostItemGo.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f); // half opacity
-        _placementModeCoroutine = StartCoroutine(PlacementModeCoroutine(ghostItemGo)); // launch placement mode
+        _placementModeCoroutine = StartCoroutine(PlacementModeCoroutine(ghostItemGo, item)); // launch placement mode
     }
 
     // The game object is half visible and follows the mouse
     // When the player clicks, it becomes fully visible and stays where the click happens
-    private IEnumerator PlacementModeCoroutine(GameObject ghostItemGo)
+    private IEnumerator PlacementModeCoroutine(GameObject ghostItemGo, Item item)
     {
         while (true)
         {
@@ -38,8 +38,8 @@ public class ItemPlacer : MonoBehaviour
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
                 Destroy(ghostItemGo);
-                OnItemPlaced.Invoke();
-                //_grid.ParcelAtCoord(parcelCoord).AddItem();
+                OnItemPlaced.Invoke(item);
+                _grid.ParcelAtCoord(parcelCoord).AddItem(item);
                 _placementModeCoroutine = null;
                 break;
             }

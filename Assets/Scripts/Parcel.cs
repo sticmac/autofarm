@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,6 +50,17 @@ public class Parcel : MonoBehaviour
         Add();
         Actionneur = pActionneur;
         Type = Types.Actioneur;
+    }
+
+    public void AddItem(Item pItem) {
+        Type t = pItem.GetType();
+        if (t == typeof(Culture)) {
+            AddCulture(pItem as Culture);
+        } else if (t == typeof(Sensor)) {
+            AddHumiditySensor(pItem as Sensor); // ooof
+        } else if (t == typeof(Actuator)) {
+            AddActuator(pItem as Actuator);
+        }
     }
 
     public void TearOut()

@@ -41,6 +41,10 @@ public class Inventory : ScriptableObject
         }
     }
 
+    public void RemoveSingleItem(Item type) {
+        RemoveItem(type, 1);
+    }
+
     public int GetItemAmount(Item type) {
         return _inventory.ContainsKey(type) ? _inventory[type] : 0;
     }
