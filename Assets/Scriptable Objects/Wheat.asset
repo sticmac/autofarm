@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Wheat
   minWater: 2
   maxWater: 4
-  baseBackground: {fileID: 7482667652216324306, guid: d3f4178d113c1dc4da5965b58cc1652c, type: 3}
-  baseSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  baseBackground: {fileID: -388266145, guid: a961ae3f796c20f4cbc55965f043930e, type: 3}
+  baseSprite: {fileID: 21300000, guid: fdf6c936fb3ec4c40a5a4b50d4577d22, type: 3}
