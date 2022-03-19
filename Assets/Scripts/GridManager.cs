@@ -16,6 +16,8 @@ public class GridManager : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _hoverPrefabs;
+    [Header("Object")]
+    [SerializeField] private Culture _wheat;
 
     private List<Parcel> _lstParcel;
     private Parcel _currentParcel;
@@ -42,9 +44,13 @@ public class GridManager : MonoBehaviour
         {
             for (int x = 0; x < _width; x++)
             {
-                Parcel p = new Parcel();
-                p.AddCulture(new Culture("Wheat"));
+                GameObject parcel = new GameObject($"Cell [{x}/{y}]");
+                Parcel p = parcel.AddComponent<Parcel>();
+                p.AddCulture(_wheat);
                 _lstParcel.Add(p);
+
+                parcel.transform.position = new Vector3(x + 0.5f, y + 0.5f);
+                parcel.transform.SetParent(transform, false);
             }
         }
     }

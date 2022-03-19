@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Culture
+[CreateAssetMenu(fileName = "New Culture", menuName = "Culture", order = 0)]
+public class Culture : ScriptableObject
 {
     public string Name;
     public float minWater;
     public float maxWater;
 
-    public Culture(string name)
-    {
-        Name = name;
-    }
+    public Sprite baseBackground;
+    public Sprite baseSprite;
 
     public void ConfigureWaterNeeded(float min, float max)
     {
