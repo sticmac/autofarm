@@ -9,23 +9,21 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private TMP_Text _priceText;
     [SerializeField] private Inventory _inventory;
 
-    private Inventory.ItemType _type;
-    private int _price;
+    private Item _item;
 
-    public void UpdateText(string name, int price, Inventory.ItemType type)
+    public void Init(Item item)
     {
-        _name.text = name;
-        _priceText.text = price.ToString() + "€";
-        _type = type;
-        _price = price;
+        _item = item;
+        _name.text = item.Name;
+        _priceText.text = item.Price.ToString() + "â‚¬";
     }
 
     public void Buy()
     {
-        if (_inventory.Money >= _price)
+        if (_inventory.Money >= _item.Price)
         {
-            _inventory.AddItem(_type, 1);
-            _inventory.Money -= _price;
+            _inventory.AddItem(_item, 1);
+            _inventory.Money -= _item.Price;
         }
     }
 }

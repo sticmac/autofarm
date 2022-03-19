@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Actuator
+public abstract class ActuatorBehaviour
 {
-    public string Name;
     public List<Rule> Rules;
-    public bool _activated;
+    public bool Activated;
 
-    public Actuator(string name)
+    public ActuatorBehaviour()
     {
-        Name = name;
-        _activated = false;
+        Activated = false;
     }
 
     public void SearchAction()
     {
-        if (_activated) { return; }
+        if (Activated) { return; }
         foreach (var rule in Rules)
         {
             if (rule.verifyRule())
@@ -35,11 +33,11 @@ public abstract class Actuator
 
     public virtual void Activate()
     {
-        _activated = true;
+        Activated = true;
     }
 
     public virtual void Desactivate()
     {
-        _activated = false;
+        Activated = false;
     }
 }

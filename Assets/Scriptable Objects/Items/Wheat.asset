@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wheat
   m_EditorClassIdentifier: 
   Name: Wheat
+  Price: 5
   minWater: 2
   maxWater: 4
   baseBackground: {fileID: -388266145, guid: a961ae3f796c20f4cbc55965f043930e, type: 3}

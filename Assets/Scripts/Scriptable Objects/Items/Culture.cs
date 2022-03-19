@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Culture", menuName = "Culture", order = 0)]
-public class Culture : ScriptableObject
+public class Culture : Item 
 {
-    public string Name;
     public float minWater;
     public float maxWater;
 

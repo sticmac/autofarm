@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sensor
+[CreateAssetMenu(fileName = "New Sensor", menuName = "Sensor", order = 0)]
+public class Sensor : Item
 {
-    public string Name;
     public float Value;
-
-    public Sensor(string name)
-    {
-        Name = name;
-    }
 } 

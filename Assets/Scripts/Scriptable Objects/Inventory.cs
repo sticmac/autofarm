@@ -5,19 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory", order = 0)]
 public class Inventory : ScriptableObject
 {
-    public enum ItemType {
-        Wheat,
-        HumiditySensor,
-        Alarm,
-        Sprinkler
-    }
-
-    private Dictionary<ItemType, int> _inventory;
+    private Dictionary<Item, int> _inventory;
     public int Money;
 
     private void OnEnable() {
-        _inventory = new Dictionary<ItemType, int>();
-        _inventory.Add(ItemType.Wheat, 3);
+        _inventory = new Dictionary<Item, int>();
         Money = 30;
     }
 
@@ -25,7 +17,7 @@ public class Inventory : ScriptableObject
         _inventory.Clear();
     }
 
-    public void AddItem(ItemType type, int amount) {
+    public void AddItem(Item type, int amount) {
         if (!_inventory.ContainsKey(type)) {
             _inventory.Add(type, amount);
         } else {
@@ -34,7 +26,7 @@ public class Inventory : ScriptableObject
     }
 
     // Returns the amount of items effectively removed
-    public int RemoveItem(ItemType type, int amount) {
+    public int RemoveItem(Item type, int amount) {
         if (_inventory.ContainsKey(type)) {
             if (_inventory[type] - amount > 0) {
                 _inventory[type] -= amount;
@@ -49,7 +41,7 @@ public class Inventory : ScriptableObject
         }
     }
 
-    public int GetItemAmount(ItemType type) {
+    public int GetItemAmount(Item type) {
         return _inventory.ContainsKey(type) ? _inventory[type] : 0;
     }
 

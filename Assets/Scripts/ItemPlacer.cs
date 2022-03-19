@@ -7,7 +7,6 @@ public class ItemPlacer : MonoBehaviour
 {
     [SerializeField] Camera _camera;
     [SerializeField] GridManager _grid;
-    [SerializeField] Culture _culture;
 
     public UnityEvent OnItemPlaced;
 
@@ -40,7 +39,7 @@ public class ItemPlacer : MonoBehaviour
             {
                 Destroy(ghostItemGo);
                 OnItemPlaced.Invoke();
-                _grid.ParcelAtCoord(parcelCoord).AddCulture(_culture);
+                //_grid.ParcelAtCoord(parcelCoord).AddItem();
                 _placementModeCoroutine = null;
                 break;
             }

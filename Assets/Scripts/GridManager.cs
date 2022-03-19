@@ -16,8 +16,6 @@ public class GridManager : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _hoverPrefabs;
-    [Header("Object")]
-    [SerializeField] private Culture _wheat;
 
     private List<Parcel> _lstParcel;
     private Parcel _currentParcel;

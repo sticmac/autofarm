@@ -2764,6 +2764,13 @@ MonoBehaviour:
   _cultureTransform: {fileID: 745407663}
   _actionneurTransform: {fileID: 466814381}
   _capteurTransform: {fileID: 986007348}
+  _itemsCulture:
+  - {fileID: 11400000, guid: 5e9bdcb748b30694fb8c69b6bc6c835c, type: 2}
+  _itemsActionneur:
+  - {fileID: 11400000, guid: 6c5ac216c0008cb6b992a73837783d70, type: 2}
+  - {fileID: 11400000, guid: 18af254a5070257f7bde84d8e5bc3a09, type: 2}
+  _itemsCapteur:
+  - {fileID: 11400000, guid: 06aa69ad88433123e8f617fba13ac843, type: 2}
 --- !u!1 &1891953408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +2939,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 819871803}
+    - target: {fileID: 4244637974906130181, guid: c647a8d53332bac4eb332133c6fd14df, type: 3}
+      propertyPath: _culture
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e9bdcb748b30694fb8c69b6bc6c835c, type: 2}
     - target: {fileID: 5160127925544000767, guid: c647a8d53332bac4eb332133c6fd14df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3251,7 +3262,6 @@ MonoBehaviour:
   _parcelInfoNone: {fileID: 1682957559}
   _parcelInfoCulture: {fileID: 861722355}
   _hoverPrefabs: {fileID: 504135865867099693, guid: 0a0590a13cfa50c47a9efe5eda05efe7, type: 3}
-  _wheat: {fileID: 11400000, guid: 5e9bdcb748b30694fb8c69b6bc6c835c, type: 2}
 --- !u!4 &2072079386
 Transform:
   m_ObjectHideFlags: 0
