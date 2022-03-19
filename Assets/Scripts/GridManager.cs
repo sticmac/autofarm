@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class GridManager : MonoBehaviour
 {
@@ -38,18 +37,6 @@ public class GridManager : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void OnClick(InputAction.CallbackContext context)
-    {
-        Debug.Log("test");
-        //if (_parcelInfo.gameObject.activeSelf) { return; }
-        //Vector2 mousePosition = Input.mousePosition;
-
-        //if (mousePosition.x < 0 || mousePosition.y < 0 || mousePosition.x >= _width || mousePosition.y >= _height) { return; }
-
-        //int id = Mathf.FloorToInt(mousePosition.y) * _width + Mathf.FloorToInt(mousePosition.x);
-        //SelectParcel(id);
     }
 
     void SelectParcel(int id)
