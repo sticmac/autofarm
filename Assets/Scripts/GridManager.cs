@@ -114,6 +114,10 @@ public class GridManager : MonoBehaviour
         return Mathf.FloorToInt(position.y) * _width + Mathf.FloorToInt(position.x);
     }
 
+    public Parcel ParcelAtCoord(Vector2 position) {
+        return _lstParcel[CoordToId(position)];
+    }
+
     public Vector2 GetClosestParcelCoordinates(Vector2 worldPosition) {
         return new Vector2(Mathf.FloorToInt(worldPosition.x), Mathf.FloorToInt(worldPosition.y));
     }

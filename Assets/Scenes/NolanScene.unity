@@ -2924,6 +2924,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4244637974906130181, guid: c647a8d53332bac4eb332133c6fd14df, type: 3}
+      propertyPath: _grid
+      value: 
+      objectReference: {fileID: 2072079385}
+    - target: {fileID: 4244637974906130181, guid: c647a8d53332bac4eb332133c6fd14df, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 819871803}
     - target: {fileID: 5160127925544000767, guid: c647a8d53332bac4eb332133c6fd14df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
