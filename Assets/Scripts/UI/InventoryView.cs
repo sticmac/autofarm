@@ -13,7 +13,7 @@ public class InventoryView : MonoBehaviour
     [SerializeField] InventoryItemView _sprinklerView;
 
     private void Start() {
-        _inventory.Clear(); // Eff
+        //_inventory.Clear(); // Eff
     }
 
     private void Update() {

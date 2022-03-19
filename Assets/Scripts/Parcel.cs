@@ -10,13 +10,50 @@ public class Parcel
         Culture,
         Actioneur
     }
-
     public Types Type;
-    public string Name;
+
+    private Culture Plante;
+    private Sensor HumiditySensor;
+    private Actuator Actionneur;
 
     public Parcel()
     {
         Type = Types.None;
-        Name = "Wheat";
+    }
+
+    public void AddCulture(Culture pPlante)
+    {
+        Plante = pPlante;
+        Type = Types.Culture;
+    }
+
+    public void AddHumiditySensor(Sensor pHumiditySensor)
+    {
+        HumiditySensor = pHumiditySensor;
+    }
+
+    public void AddActuator(Actuator pActionneur)
+    {
+        Actionneur = pActionneur;
+        Type = Types.Actioneur;
+    }
+
+    public void TearOut()
+    {
+        Plante = null;
+        Actionneur = null;
+        Type = Types.None;
+    }
+
+    public string GetName()
+    {
+        switch (Type)
+        {
+            case Types.Actioneur:
+                return Actionneur.Name;
+            case Types.Culture:
+                return Plante.Name;
+        }
+        return "None";
     }
 }

@@ -16,6 +16,7 @@ public class Inventory : ScriptableObject
 
     private void OnEnable() {
         _inventory = new Dictionary<ItemType, int>();
+        _inventory.Add(ItemType.Wheat, 3);
     }
 
     public void Clear() {

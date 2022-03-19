@@ -42,7 +42,9 @@ public class GridManager : MonoBehaviour
         {
             for (int x = 0; x < _width; x++)
             {
-                _lstParcel.Add(new Parcel());
+                Parcel p = new Parcel();
+                p.AddCulture(new Culture("Wheat"));
+                _lstParcel.Add(p);
             }
         }
     }
@@ -52,7 +54,6 @@ public class GridManager : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         hitMouse = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
         if (hitMouse.collider == null) { _hover.transform.position = new Vector3(50f, 50f); return; }
-        Debug.Log("test");
         if (Input.GetMouseButtonDown(0))
         {
             OnClick();
@@ -82,18 +83,16 @@ public class GridManager : MonoBehaviour
     void SelectParcel(int id, Vector2 position)
     {
         _currentParcel = _lstParcel[id];
-        GameObject parcel = _parcelInfoNone;
 
+        GameObject parcel = _parcelInfoNone;
         if (_currentParcel.Type == Parcel.Types.Culture)
         {
             parcel = _parcelInfoCulture;
-            ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
-            parcelInfo.Title = _currentParcel.Name;
-        } else
-        {
-            ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
-            parcelInfo.Title = _currentParcel.Type.ToString();
         }
+
+        ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
+        parcelInfo.Title = _currentParcel.GetName();
+
         parcel.transform.position = Camera.main.WorldToScreenPoint(position);
         parcel.gameObject.SetActive(true);
     }
