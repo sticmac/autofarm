@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class Parcel
 {
-
+    enum Type
+    {
+        None,
+        Culture,
+        Actioneur
+    }
 }

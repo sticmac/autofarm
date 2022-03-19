@@ -14,6 +14,8 @@ public class GridManager : MonoBehaviour
     private List<Parcel> _lstParcel;
     private Parcel _currentParcel;
 
+    private bool _isParcelSelected { get { return _parcelInfo.gameObject.activeSelf; } }
+
     void Start()
     {
         CreateGrid();
@@ -36,13 +38,32 @@ public class GridManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnClick();
+        }
+    }
+
+    void OnClick()
+    {
+        if (_isParcelSelected) { UnSelectParcel(); return; }
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mousePosition.x < 0 || mousePosition.y < 0 || mousePosition.x >= _width || mousePosition.y >= _height) { return; }
+
+        int id = Mathf.FloorToInt(mousePosition.y) * _width + Mathf.FloorToInt(mousePosition.x);
+        SelectParcel(id);
     }
 
     void SelectParcel(int id)
     {
         _currentParcel = _lstParcel[id];
-
         _parcelInfo.gameObject.SetActive(true);
+    }
+
+    void UnSelectParcel()
+    {
+        _currentParcel = null;
+        _parcelInfo.gameObject.SetActive(false);
     }
 }
