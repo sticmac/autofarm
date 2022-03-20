@@ -33,6 +33,7 @@ public class GridManager : MonoBehaviour
     private bool _isParcelSelected { get { return _currentParcel != null; } }
 
     public Parcel CurrentParcel => _currentParcel;
+    public RaycastHit2D HitMouse => hitMouse;
 
     void Start()
     {
@@ -67,6 +68,7 @@ public class GridManager : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         hitMouse = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
         if (hitMouse.collider == null) { _hover.transform.position = new Vector3(50f, 50f); return; }
+
 
         if (_parcelClickEnabled) {
             if (Input.GetMouseButtonDown(0))

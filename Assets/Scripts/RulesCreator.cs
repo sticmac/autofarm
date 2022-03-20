@@ -9,10 +9,10 @@ public class RulesCreator : MonoBehaviour
     [SerializeField] Transform _rulesUIContainer;
 
     private ActuatorInstance _instance;
-    private Dictionary<RuleEditor, Rule> _rules;
+
+    public GridManager AttachedGridManager => _gridManager;
 
     private void Start() {
-        _rules = new Dictionary<RuleEditor, Rule>();
         _instance = _gridManager.CurrentParcel.GetComponentInChildren<ActuatorInstance>();
     }
 
@@ -25,6 +25,5 @@ public class RulesCreator : MonoBehaviour
 
         RuleEditor ruleEditor = ruleGo.GetComponent<RuleEditor>();
         ruleEditor.Rule = rule;
-        _rules.Add(ruleEditor, rule);
     }
 }
