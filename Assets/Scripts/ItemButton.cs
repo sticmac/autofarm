@@ -8,6 +8,7 @@ public class ItemButton : MonoBehaviour
 {
     [SerializeField] Item _item;
     [SerializeField] ItemPlacer _itemPlacer;
+    [SerializeField] GridManager _gridManager;
     [SerializeField] Button _button;
     [SerializeField] GameObject _itemObject;
 
@@ -19,7 +20,10 @@ public class ItemButton : MonoBehaviour
     }
 
     private void OnEnable() {
-        _action = () => _itemPlacer.ActivatePlacementModeForItem(_itemObject, _item);
+        _action = () => {
+            _itemPlacer.ActivatePlacementModeForItem(_itemObject, _item);
+            _gridManager.SetParcelClickEnabled(false);
+        };
         _button.onClick.AddListener(_action);
     }
 

@@ -17,6 +17,8 @@ public class GridManager : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameObject _hoverPrefabs;
 
+    private bool _parcelClickEnabled = true;
+
     private List<Parcel> _lstParcel;
     private Parcel _currentParcel;
     private RaycastHit2D hitMouse;
@@ -57,11 +59,14 @@ public class GridManager : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         hitMouse = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
         if (hitMouse.collider == null) { _hover.transform.position = new Vector3(50f, 50f); return; }
-        if (Input.GetMouseButtonDown(0))
-        {
-            OnClick();
+
+        if (_parcelClickEnabled) {
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnClick();
+            }
+            OnHover();
         }
-        OnHover();
     }
 
     void OnHover()
@@ -98,6 +103,10 @@ public class GridManager : MonoBehaviour
 
         parcel.transform.position = Camera.main.WorldToScreenPoint(offset);
         parcel.gameObject.SetActive(true);
+    }
+
+    public void SetParcelClickEnabled(bool active) {
+        _parcelClickEnabled = active;
     }
 
     public void UnSelectParcel()
