@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Alerte
   Price: 35
+  _actuatorPrefab: {fileID: 7956098609138145520, guid: bf0fb1308ce2b6829a85f17e87c9bcae, type: 3}

@@ -79,6 +79,8 @@ public class Parcel : MonoBehaviour
     {
         Add();
         Actionneur = pActionneur;
+        GameObject actuatorInstance = Instantiate(pActionneur.ActuatorPrefab);
+        actuatorInstance.transform.SetParent(transform, false);
         Type = Types.Actioneur;
     }
 
