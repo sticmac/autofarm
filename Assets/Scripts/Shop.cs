@@ -15,25 +15,25 @@ public class Shop : MonoBehaviour
 
     void Start()
     {
-        int offset = 200;
+        int offset = 250;
         int offsetY = -100;
         for (int i = 0; i < _itemsCulture.Count; i++)
         {
             GameObject item = Instantiate(_ShopItemPrefab, _cultureTransform);
             item.GetComponent<ShopItem>().Init(_itemsCulture[i]);
-            item.transform.position = new Vector3(_cultureTransform.position.x + i * offset, _cultureTransform.position.y + offsetY);
+            item.transform.position = new Vector3(_cultureTransform.position.x + (i + 1) * offset, _cultureTransform.position.y);
         }
         for (int i = 0; i < _itemsActionneur.Count; i++)
         {
             GameObject item = Instantiate(_ShopItemPrefab, _actionneurTransform);
             item.GetComponent<ShopItem>().Init(_itemsActionneur[i]);
-            item.transform.position = new Vector3(_actionneurTransform.position.x + i * offset, _actionneurTransform.position.y + offsetY);
+            item.transform.position = new Vector3(_actionneurTransform.position.x + (i + 1) * offset, _actionneurTransform.position.y);
         }
         for (int i = 0; i < _itemsCapteur.Count; i++)
         {
             GameObject item = Instantiate(_ShopItemPrefab, _capteurTransform);
             item.GetComponent<ShopItem>().Init(_itemsCapteur[i]);
-            item.transform.position = new Vector3(_capteurTransform.position.x + i * offset, _capteurTransform.position.y + offsetY);
+            item.transform.position = new Vector3(_capteurTransform.position.x + (i + 1) * offset, _capteurTransform.position.y);
         }
     }
 
