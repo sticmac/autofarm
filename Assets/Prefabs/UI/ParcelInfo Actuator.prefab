@@ -254,8 +254,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: efa4fa3e0e39f7fc48e2d6d1684fb28e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -759,8 +759,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2352607446780354281}
   m_HandleRect: {fileID: 4237885143800305942}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5135135
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -873,6 +873,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4369434074723828063, guid: c11d6f674e441d5409b8edcf1f1fc0ec, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4369434074723828063, guid: c11d6f674e441d5409b8edcf1f1fc0ec, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 30
