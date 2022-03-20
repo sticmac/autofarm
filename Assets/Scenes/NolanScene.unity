@@ -27591,6 +27591,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &245497201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5070734426981579235, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+  m_PrefabInstance: {fileID: 1764771470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &408080718
 GameObject:
   m_ObjectHideFlags: 0
@@ -28783,6 +28788,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1188472298}
     m_Modifications:
+    - target: {fileID: 1128696104384268419, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128696104384268419, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128696104384268419, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 211.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128696104384268419, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693251684731717005, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: _gridManager
+      value: 
+      objectReference: {fileID: 2072079385}
+    - target: {fileID: 4237885143800305942, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237885143800305942, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237885143800305942, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.38333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070734425394467455, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2072079385}
+    - target: {fileID: 5070734425394467455, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnSelectParcel
+      objectReference: {fileID: 0}
     - target: {fileID: 5070734426981579235, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
       propertyPath: m_Name
       value: ParcelInfo Actuator
@@ -28873,6 +28918,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5070734426981579236, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471996562436176409, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471996562436176409, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471996562436176409, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720991725417620386, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720991725417620386, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720991725417620386, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720991725417620386, guid: 348009f13658e3f69b2dfdc2891c8a9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -29755,6 +29828,7 @@ MonoBehaviour:
   _sensorView: {fileID: 1286430543}
   _parcelInfoNone: {fileID: 1682957559}
   _parcelInfoCulture: {fileID: 1286430542}
+  _parcelInfoActuator: {fileID: 245497201}
   _hoverPrefabs: {fileID: 504135865867099693, guid: 0a0590a13cfa50c47a9efe5eda05efe7, type: 3}
 --- !u!4 &2072079386
 Transform:

@@ -31,6 +31,12 @@ public abstract class ActuatorInstance : MonoBehaviour
         }
     }
 
+    public Rule CreateNewRule() {
+        Rule rule = new Rule();
+        Rules.Add(rule);
+        return rule;
+    }
+
     public virtual void Activate()
     {
         Activated = true;

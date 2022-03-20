@@ -17,6 +17,7 @@ public class GridManager : MonoBehaviour
     [Header("Canvas")]
     [SerializeField] private GameObject _parcelInfoNone;
     [SerializeField] private GameObject _parcelInfoCulture;
+    [SerializeField] private GameObject _parcelInfoActuator;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _hoverPrefabs;
@@ -30,6 +31,8 @@ public class GridManager : MonoBehaviour
     private GameObject _hover;
 
     private bool _isParcelSelected { get { return _currentParcel != null; } }
+
+    public Parcel CurrentParcel => _currentParcel;
 
     void Start()
     {
@@ -107,6 +110,10 @@ public class GridManager : MonoBehaviour
         {
             parcel = _parcelInfoCulture;
         }
+        else if (_currentParcel.Type == Parcel.Types.Actioneur)
+        {
+            parcel = _parcelInfoActuator;
+        }
 
         ParcelCanvas parcelInfo = parcel.GetComponentInChildren<ParcelCanvas>();
         parcelInfo.Title = _currentParcel.GetName();
@@ -124,6 +131,7 @@ public class GridManager : MonoBehaviour
         _currentParcel = null;
         _parcelInfoNone.gameObject.SetActive(false);
         _parcelInfoCulture.gameObject.SetActive(false);
+        _parcelInfoActuator.gameObject.SetActive(false);
     }
 
     public int CoordToId(Vector2 position)
