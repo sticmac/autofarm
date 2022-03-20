@@ -13,14 +13,20 @@ public class Parcel : MonoBehaviour
     }
     public Types Type = Types.None;
 
+    public float HumidityLosePerSeconds;
+
     private Culture Plante;
     private Sensor HumiditySensor;
     private Actuator Actionneur;
     private SpriteRenderer _background;
     private SpriteRenderer _sprite;
 
+    private float _humidity = 50;
+
     public void Add()
     {
+        if (_sprite != null) { return; }
+
         gameObject.AddComponent<BoxCollider2D>();
 
         GameObject go = new GameObject("background");
@@ -28,6 +34,23 @@ public class Parcel : MonoBehaviour
         _background = go.AddComponent<SpriteRenderer>();
         _background.sortingOrder = -1;
         _sprite = gameObject.AddComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        _humidity -= HumidityLosePerSeconds * Time.deltaTime;
+    }
+
+    public void UpdateSensor(HumiditySensorView _sensorView)
+    {
+        if (HumiditySensor)
+        {
+            _sensorView.ActivateSensor();
+            _sensorView.UpdateValeur(_humidity);
+        } else
+        {
+            _sensorView.DesactivateSensor();
+        }
     }
 
     public void AddCulture(Culture pPlante)

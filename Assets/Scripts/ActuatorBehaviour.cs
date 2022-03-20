@@ -14,13 +14,13 @@ public abstract class ActuatorBehaviour
 
     public void SearchAction()
     {
-        if (Activated) { return; }
         foreach (var rule in Rules)
         {
             if (rule.verifyRule())
             {
                 if (rule.action == Rule.Actions.Activate)
                 {
+                    if (Activated) { return; }
                     Activate();
                 } else
                 {

@@ -9,6 +9,10 @@ public class GridManager : MonoBehaviour
     [Header("Grid info")]
     [SerializeField] private int _width;
     [SerializeField] private int _height;
+    [SerializeField] private float _HumidityLosePerSeconds;
+
+    [Header("Sensor")]
+    [SerializeField] private HumiditySensorView _sensorView;
 
     [Header("Canvas")]
     [SerializeField] private GameObject _parcelInfoNone;
@@ -46,6 +50,7 @@ public class GridManager : MonoBehaviour
             {
                 GameObject parcel = new GameObject($"Cell [{x}/{y}]");
                 Parcel p = parcel.AddComponent<Parcel>();
+                p.HumidityLosePerSeconds = _HumidityLosePerSeconds;
                 _lstParcel.Add(p);
 
                 parcel.transform.position = new Vector3(x + 0.5f, y + 0.5f);
@@ -66,6 +71,11 @@ public class GridManager : MonoBehaviour
                 OnClick();
             }
             OnHover();
+        }
+
+        if (_currentParcel)
+        {
+            _currentParcel.UpdateSensor(_sensorView);
         }
     }
 

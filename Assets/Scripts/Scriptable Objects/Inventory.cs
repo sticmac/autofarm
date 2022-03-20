@@ -10,7 +10,6 @@ public class Inventory : ScriptableObject
 
     private void OnEnable() {
         _inventory = new Dictionary<Item, int>();
-        Money = 30;
     }
 
     public void Clear() {
