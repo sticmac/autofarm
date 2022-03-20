@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b90575d6df02e1408765fe3ed349782, type: 3}
   m_Name: Alert
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 4d124e5ad2abf20439bc49a6e25617b0, type: 3}
   Name: Alerte
   Price: 35
   _actuatorPrefab: {fileID: 7956098609138145520, guid: bf0fb1308ce2b6829a85f17e87c9bcae, type: 3}

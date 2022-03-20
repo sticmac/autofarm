@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7a8612c3a329a4ab74f1d750e8372b, type: 3}
   m_Name: "Humidity\_Sensor"
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 4496ebfc78bdc1e4ca6bdd706f49127f, type: 3}
   Name: "Humidit\xE9"
   Price: 10
   Value: 0

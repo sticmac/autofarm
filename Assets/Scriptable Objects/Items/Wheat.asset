@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ff5754f7be11a4eb12707ea8e3bbbe, type: 3}
   m_Name: Wheat
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 2d8097c047bfa4045851ddb7864b50ab, type: 3}
   Name: Wheat
   Price: 5
   minWater: 2

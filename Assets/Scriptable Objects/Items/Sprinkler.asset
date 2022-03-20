@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b90575d6df02e1408765fe3ed349782, type: 3}
   m_Name: Sprinkler
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: f2a1a1ab506a7df46b72dc674e48db22, type: 3}
   Name: Arroseur
   Price: 60
+  _actuatorPrefab: {fileID: 0}
