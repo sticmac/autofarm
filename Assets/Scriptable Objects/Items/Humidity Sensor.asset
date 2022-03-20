@@ -15,4 +15,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 4496ebfc78bdc1e4ca6bdd706f49127f, type: 3}
   Name: "Humidit\xE9"
   Price: 10
-  Value: 0
+  _actuatorPrefab: {fileID: 7956098609138145520, guid: 2117c795bf9d78e4987355c135b52302, type: 3}

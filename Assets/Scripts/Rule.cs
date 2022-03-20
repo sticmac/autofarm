@@ -18,7 +18,7 @@ public class Rule
     }
 
     public int value;
-    public Sensor sensor;
+    public SensorInstance sensor;
     public LogicalOperators logicalOperator;
     public Actions action;
 

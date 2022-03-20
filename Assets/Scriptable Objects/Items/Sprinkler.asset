@@ -15,4 +15,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: f2a1a1ab506a7df46b72dc674e48db22, type: 3}
   Name: Arroseur
   Price: 60
-  _actuatorPrefab: {fileID: 0}
+  _actuatorPrefab: {fileID: 7956098609138145520, guid: ce8fa9388c14c3e41b4854a69f50b917, type: 3}

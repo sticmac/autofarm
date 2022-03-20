@@ -16,7 +16,7 @@ public class Parcel : MonoBehaviour
     public float HumidityLosePerSeconds;
 
     private Culture Plante;
-    private Sensor HumiditySensor;
+    private SensorInstance HumiditySensor;
     private Actuator Actionneur;
     private SpriteRenderer _background;
     private SpriteRenderer _sprite;
@@ -72,7 +72,9 @@ public class Parcel : MonoBehaviour
     public void AddHumiditySensor(Sensor pHumiditySensor)
     {
         Add();
-        HumiditySensor = pHumiditySensor;
+        GameObject sensorInstance = Instantiate(pHumiditySensor.ActuatorPrefab);
+        sensorInstance.transform.SetParent(transform, false);
+        HumiditySensor = sensorInstance.GetComponent<SensorInstance>();
     }
 
     public void AddActuator(Actuator pActionneur)
