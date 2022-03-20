@@ -27,4 +27,8 @@ public class RuleEditor : MonoBehaviour
     public void SetSensor(SensorInstance sensorInstance) {
         _rule.sensor = sensorInstance;
     }
+
+    public void SetActivation(bool activated) {
+        _rule.action = activated ? Rule.Actions.Activate : Rule.Actions.Desactivate;
+    }
 }
