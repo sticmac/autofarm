@@ -7,6 +7,7 @@ public abstract class ActuatorInstance : MonoBehaviour
 {
     public List<Rule> Rules;
     public bool Activated;
+    public Parcel parcel;
 
     public void SearchAction()
     {
@@ -18,10 +19,12 @@ public abstract class ActuatorInstance : MonoBehaviour
                 {
                     if (!Activated) { 
                         Activate();
+                        parcel = rule.sensor.gameObject.GetComponentInParent<Parcel>();
                     }
                 } else
                 {
                     Desactivate();
+                    parcel = null;
                 }
                 return;
             }

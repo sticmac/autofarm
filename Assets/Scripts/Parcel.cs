@@ -16,12 +16,14 @@ public class Parcel : MonoBehaviour
     public float HumidityLosePerSeconds;
 
     private Culture Plante;
+    private CultureInstance PlanteInstance;
     private SensorInstance HumiditySensor;
     private Actuator Actionneur;
+    private ActuatorInstance ActionneurInstance;
     private SpriteRenderer _background;
     private SpriteRenderer _sprite;
 
-    private float _humidity = 50;
+    private float _humidity = 100;
 
     private int _id;
 
@@ -46,6 +48,12 @@ public class Parcel : MonoBehaviour
     private void Update()
     {
         _humidity -= HumidityLosePerSeconds * Time.deltaTime;
+        ProgressCulture();
+    }
+
+    public void Sprinkle()
+    {
+        _humidity += HumidityLosePerSeconds * Time.deltaTime * 2;
     }
 
     public void UpdateSensor(HumiditySensorView _sensorView)
@@ -66,7 +74,31 @@ public class Parcel : MonoBehaviour
         Plante = pPlante;
         _background.sprite = Plante.baseBackground;
         _sprite.sprite = Plante.baseSprite;
+        GameObject cultureInsance = Instantiate(pPlante.ActuatorPrefab);
+        cultureInsance.transform.SetParent(transform, false);
+        PlanteInstance = cultureInsance.GetComponent<CultureInstance>();
         Type = Types.Culture;
+    }
+
+    public void ProgressCulture()
+    {
+        if (Type != Types.Culture) { return; }
+
+        if (_humidity >= Plante.minWater && _humidity <= Plante.maxWater)
+            PlanteInstance.progession += Time.deltaTime * 10/3;
+        if (PlanteInstance.progession >= 33)
+        {
+            _sprite.sprite = Plante.miSprite;
+        }
+        if (PlanteInstance.progession >= 66)
+        {
+            _sprite.sprite = Plante.finalSprite;
+        }
+        if (PlanteInstance.progession >= 100)
+        {
+            PlanteInstance.Sell(Plante.SellingPrice);
+            TearOut();
+        }
     }
 
     public void AddHumiditySensor(Sensor pHumiditySensor)
@@ -83,6 +115,7 @@ public class Parcel : MonoBehaviour
         Actionneur = pActionneur;
         GameObject actuatorInstance = Instantiate(pActionneur.ActuatorPrefab);
         actuatorInstance.transform.SetParent(transform, false);
+        ActionneurInstance = actuatorInstance.GetComponent<ActuatorInstance>();
         Type = Types.Actioneur;
     }
 
@@ -102,6 +135,12 @@ public class Parcel : MonoBehaviour
         Plante = null;
         Actionneur = null;
         Type = Types.None;
+        if (ActionneurInstance)
+            Destroy(ActionneurInstance.gameObject);
+        if (PlanteInstance)
+            Destroy(PlanteInstance.gameObject);
+        _sprite.sprite = null;
+        _background.sprite = null;
     }
 
     public string GetName()
