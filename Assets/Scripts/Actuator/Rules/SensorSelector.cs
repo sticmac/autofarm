@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SensorSelector : MonoBehaviour
 {
+    [SerializeField] Image _sensorSelectedImage;
+
     private GridManager _gridManager;
     private CanvasGroup _canvasGroup;
     private List<Parcel> _neighbours;
@@ -48,6 +51,7 @@ public class SensorSelector : MonoBehaviour
             RaycastHit2D res = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
             if (res.collider != null && res.collider.CompareTag("Sensor")) {
                 _ruleEditor.SetSensor(res.collider.GetComponent<SensorInstance>());
+                _sensorSelectedImage.enabled = true;
 
                 // Make ui invisible
                 _canvasGroup.interactable = true;
