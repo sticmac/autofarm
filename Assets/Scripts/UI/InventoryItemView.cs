@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class InventoryItemView : MonoBehaviour {
     [SerializeField] Inventory _inventory;
@@ -10,6 +11,7 @@ public class InventoryItemView : MonoBehaviour {
     [Space(5)]
     [SerializeField] TextMeshProUGUI _name;
     [SerializeField] TextMeshProUGUI _count;
+    [SerializeField] Image _icon;
 
     public void UpdateView() {
         int count = _inventory.GetItemAmount(_item);
@@ -17,6 +19,7 @@ public class InventoryItemView : MonoBehaviour {
             gameObject.SetActive(false);
         } else {
             gameObject.SetActive(true);
+            _icon.sprite = _item.Icon;
             _count.text = count.ToString();
         }
     }
