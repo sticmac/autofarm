@@ -71,6 +71,7 @@ public class Parcel : MonoBehaviour
     public void AddCulture(Culture pPlante)
     {
         Add();
+        AudioManager.Instance.Play("Planter");
         Plante = pPlante;
         _background.sprite = Plante.baseBackground;
         _sprite.sprite = Plante.baseSprite;
@@ -104,6 +105,7 @@ public class Parcel : MonoBehaviour
     public void AddHumiditySensor(Sensor pHumiditySensor)
     {
         Add();
+        AudioManager.Instance.Play("Actuator");
         GameObject sensorInstance = Instantiate(pHumiditySensor.ActuatorPrefab);
         sensorInstance.transform.SetParent(transform, false);
         HumiditySensor = sensorInstance.GetComponent<SensorInstance>();
@@ -112,6 +114,7 @@ public class Parcel : MonoBehaviour
     public void AddActuator(Actuator pActionneur)
     {
         Add();
+        AudioManager.Instance.Play("Actuator");
         Actionneur = pActionneur;
         GameObject actuatorInstance = Instantiate(pActionneur.ActuatorPrefab);
         actuatorInstance.transform.SetParent(transform, false);
@@ -132,6 +135,7 @@ public class Parcel : MonoBehaviour
 
     public void TearOut()
     {
+        AudioManager.Instance.Play("Tear Out");
         Plante = null;
         Actionneur = null;
         Type = Types.None;

@@ -25,6 +25,7 @@ public class ShopItem : MonoBehaviour
     {
         if (_inventory.Money >= _item.Price)
         {
+            AudioManager.Instance.Play("Buy");
             _inventory.AddItem(_item, 1);
             _inventory.Money -= _item.Price;
         }
