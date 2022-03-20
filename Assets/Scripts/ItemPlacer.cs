@@ -39,7 +39,11 @@ public class ItemPlacer : MonoBehaviour
             {
                 Destroy(ghostItemGo);
                 OnItemPlaced.Invoke(item);
-                _grid.ParcelAtCoord(parcelCoord).AddItem(item);
+
+                Parcel parcel = _grid.ParcelAtCoord(parcelCoord);
+                parcel.AddItem(item);
+                parcel.Id = _grid.CoordToId(parcelCoord);
+
                 _placementModeCoroutine = null;
                 break;
             }

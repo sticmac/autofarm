@@ -1,16 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ActuatorBehaviour
+public abstract class ActuatorInstance : MonoBehaviour
 {
     public List<Rule> Rules;
     public bool Activated;
-
-    public ActuatorBehaviour()
-    {
-        Activated = false;
-    }
 
     public void SearchAction()
     {
@@ -20,8 +16,9 @@ public abstract class ActuatorBehaviour
             {
                 if (rule.action == Rule.Actions.Activate)
                 {
-                    if (Activated) { return; }
-                    Activate();
+                    if (!Activated) { 
+                        Activate();
+                    }
                 } else
                 {
                     Desactivate();

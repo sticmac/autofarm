@@ -135,6 +135,20 @@ public class GridManager : MonoBehaviour
         return _lstParcel[CoordToId(position)];
     }
 
+    public Parcel ParcelNextToId(int id, Vector2 diff) {
+        int retId = id + Mathf.FloorToInt(diff.y) * _width + Mathf.FloorToInt(diff.x);
+
+        if (Vector2.Distance(GetCoordinatesForId(id), GetCoordinatesForId(retId)) > diff.magnitude) {
+            return null;
+        } else {
+            return _lstParcel[retId];
+        }
+    }
+
+    private Vector2 GetCoordinatesForId(int id) {
+        return new Vector2(id % _width, id / _width);
+    }
+
     public Vector2 GetClosestParcelCoordinates(Vector2 worldPosition) {
         return new Vector2(Mathf.FloorToInt(worldPosition.x), Mathf.FloorToInt(worldPosition.y));
     }

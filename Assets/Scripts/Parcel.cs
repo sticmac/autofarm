@@ -23,6 +23,13 @@ public class Parcel : MonoBehaviour
 
     private float _humidity = 50;
 
+    private int _id;
+
+    public int Id {
+        get => _id;
+        set => _id = value;
+    }
+
     public void Add()
     {
         if (_sprite != null) { return; }
